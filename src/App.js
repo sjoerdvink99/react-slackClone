@@ -7,8 +7,6 @@ import Login from "./Login";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { useStateValue } from "./StateProvider";
 
-const tijd = "03.40.00";
-
 function App() {
   const [{ user }, dispatch] = useStateValue();
 

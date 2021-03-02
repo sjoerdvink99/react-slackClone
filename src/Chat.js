@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./Chat.css";
 import Message from "./Message";
+import ChatInput from "./ChatInput";
 import { useParams } from "react-router-dom";
 import { InfoOutlined, StarBorderOutlined } from "@material-ui/icons";
 import db from "./firebase";
@@ -50,6 +51,7 @@ export default function Chat() {
           />
         ))}
       </div>
+      <ChatInput channelName={roomDetails?.name} channelId={roomId} />
     </div>
   );
 }

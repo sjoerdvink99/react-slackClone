@@ -1,17 +1,38 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 import Header from "./Header";
 import Sidebar from "./Sidebar";
+import Chat from "./Chat";
+import Login from "./Login";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-const tijd = "01.08.07";
+const tijd = "03.00.00";
 
 function App() {
+  const [user, setUser] = useState(null);
+
   return (
     <div className='app'>
-      <Header />
-      <div className='app__body'>
-        <Sidebar />
-      </div>
+      <Router>
+        {!user ? (
+          <Login />
+        ) : (
+          <>
+            <Header />
+            <div className='app__body'>
+              <Sidebar />
+              <Switch>
+                <Route path='/room/:roomId'>
+                  <Chat />
+                </Route>
+                <Route path='/'>
+                  <h1>home</h1>
+                </Route>
+              </Switch>
+            </div>
+          </>
+        )}
+      </Router>
     </div>
   );
 }

@@ -16,8 +16,10 @@ import {
   PeopleAlt,
 } from "@material-ui/icons";
 import db from "./firebase";
+import { useStateValue } from "./StateProvider";
 
 export default function Sidebar() {
+  const [{ user }] = useStateValue();
   const [channels, setChannels] = useState([]);
 
   useEffect(() => {
@@ -38,7 +40,7 @@ export default function Sidebar() {
           <h2>Developer Workspace</h2>
           <h3>
             <FiberManualRecord />
-            Sjoerd Vink
+            {user?.displayName}
           </h3>
         </div>
         <Create />

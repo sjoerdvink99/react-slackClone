@@ -1,15 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 import "./App.css";
 import Header from "./Header";
 import Sidebar from "./Sidebar";
 import Chat from "./Chat";
 import Login from "./Login";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { useStateValue } from "./StateProvider";
 
-const tijd = "03.00.00";
+const tijd = "03.40.00";
 
 function App() {
-  const [user, setUser] = useState(null);
+  const [{ user }, dispatch] = useStateValue();
 
   return (
     <div className='app'>
